@@ -2,6 +2,7 @@ const crypto = require("crypto");
 const User = require("../models/User");
 const sendEmail = require("../utils/sendEmail");
 const jwt = require("jsonwebtoken");
+require('dotenv').config();
 
 exports.forgotPassword = async (req, res) => {
   const { email } = req.body;

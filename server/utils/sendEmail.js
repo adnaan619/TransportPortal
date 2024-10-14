@@ -6,16 +6,16 @@ const sendEmail = async (options) => {
     port: process.env.SMTP_PORT,
     secure: process.env.SMTP_PORT == 465, // true for port 465, false for other ports
     auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
+      user: process.env.EMAIL_USER, // Your email address
+      pass: process.env.EMAIL_PASS, // Your email password or App Password
     },
   });
 
   const mailOptions = {
-    from: `"Support Team" <${process.env.EMAIL_USER}>`,
-    to: options.email,
-    subject: options.subject,
-    text: options.message,
+    from: `"Support Team" <${process.env.EMAIL_USER}>`, // Sender address
+    to: options.email, // Recipient email address
+    subject: options.subject, // Email subject
+    text: options.message, // Plain text body
   };
 
   await transporter.sendMail(mailOptions);
